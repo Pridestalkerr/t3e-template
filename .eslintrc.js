@@ -12,6 +12,10 @@ module.exports = {
       parserOptions: {
         project: path.join(__dirname, "tsconfig.json"),
       },
+      rules: {
+        // too restrictive
+        "@typescript-eslint/no-unsafe-return": "warn",
+      },
     },
   ],
   parser: "@typescript-eslint/parser",
