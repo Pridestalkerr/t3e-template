@@ -1,7 +1,11 @@
 import { api } from "~/utils/api";
 
+import { env } from "~/env/index";
+
 export default function IndexPage() {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
+
+  console.log("client: ", env);
 
   return (
     <div>
