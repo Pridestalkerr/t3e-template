@@ -17,7 +17,7 @@ void app.prepare().then(() => {
   const server = express();
 
   // Handle Next.js rendering
-  server.get("*", (req, res) => {
+  server.all("*", (req, res) => {
     void handle(req, res);
   });
 
