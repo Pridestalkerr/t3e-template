@@ -1,4 +1,5 @@
 import { z } from "zod";
+console.log(__dirname);
 import { validate } from "./env";
 
 const server = z.object({
@@ -6,6 +7,7 @@ const server = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
   DISCORD_CLIENT_ID: z.string().min(1),
   DISCORD_CLIENT_SECRET: z.string().min(1),
+  REDIS_URL: z.string().url(),
 });
 
 const client = z.object({
@@ -19,4 +21,5 @@ export const env = validate(server, client, {
   NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
   DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
+  REDIS_URL: process.env.REDIS_URL,
 });
