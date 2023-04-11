@@ -6,8 +6,6 @@ import { env } from "../src/env/index";
 
 console.log(env);
 
-// import { env } from "../src/envd.mjs";
-
 const dev = env.NODE_ENV !== "production";
 const app = next({ dev });
 
