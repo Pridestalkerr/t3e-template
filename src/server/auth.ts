@@ -2,6 +2,8 @@ import { type GetServerSidePropsContext } from "next";
 import { getServerSession, type NextAuthOptions } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
 import { env } from "~/env/index";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { prisma } from "~/server/db";
 
 /**
  * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.
@@ -18,7 +20,7 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   },
-  //   adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(prisma),
   providers: [
     DiscordProvider({
       clientId: env.DISCORD_CLIENT_ID,
