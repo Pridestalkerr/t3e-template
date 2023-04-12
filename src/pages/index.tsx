@@ -4,6 +4,8 @@ import { env } from "~/env/index";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function IndexPage() {
+  console.log(env);
+
   const { data: sessionData } = useSession();
 
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
